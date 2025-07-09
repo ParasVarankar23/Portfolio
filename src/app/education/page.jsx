@@ -1,5 +1,10 @@
-import Education from "@/components/education/education";
+import Education from '@/components/education/education'
+import React from 'react'
 
-export default function Page() {
-    return <Education />;
+export default function page() {
+  return (
+    <div>
+      <Education/>
+    </div>
+  )
 }
