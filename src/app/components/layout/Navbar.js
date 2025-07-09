@@ -1,8 +1,8 @@
 "use client";
 import { useContext, useState } from "react";
-import { LanguageContext } from "../../context/LanguageContext";
-import { LANGUAGES } from "../../context/languages";
-import { ThemeContext } from "../../context/ThemeContext";
+import { LanguageContext } from "../context/LanguageContext";
+import { LANGUAGES } from "../context/languages";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Navbar = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
