@@ -3,10 +3,7 @@ import { FaGithub, FaInstagram, FaLinkedin, FaTelegram, FaWhatsapp, FaYoutube } 
 export default function Contact() {
     return (
         <div className="max-w-xl mx-auto p-6">
-            <h2
-                className="text-3xl font-bold text-center mb-6 text-black dark:text-white"
-                style={{ color: 'black', WebkitTextFillColor: 'white', WebkitTextStroke: '0.5px white' }}
-            >
+            <h2 className="text-4xl font-bold text-center mb-10 tracking-wide">
                 Contact Us
             </h2>
             <div className="flex justify-center gap-10 mb-4">
