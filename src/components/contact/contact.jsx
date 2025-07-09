@@ -3,7 +3,7 @@ import { FaGithub, FaInstagram, FaLinkedin, FaTelegram, FaWhatsapp, FaYoutube } 
 
 export default function Contact() {
     return (
-        <div className="max-w-4xl mx-auto p-6">
+        <div className="max-w-2xl mx-auto p-6">
             <h2 className="text-4xl font-bold text-center mb-10 tracking-wide">
                 Contact Me
             </h2>
@@ -36,12 +36,12 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <h3 className="text-xl font-semibold text-center mb-6 mt-6 text-black dark:text-white">
+            <h3 className="text-xl font-semibold text-center mb-6 mt-6 dark:text-white">
                 Reach Out to Me
             </h3>
 
             <form
-                className="rounded-xl shadow-lg p-6 flex flex-col gap-4 transition-colors duration-300"
+                className="rounded-xl shadow-lg p-10 flex flex-col gap-4 transition-colors duration-300"
                 style={{
                     background: "var(--background)",
                     color: "var(--foreground)",

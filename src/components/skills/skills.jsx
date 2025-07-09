@@ -76,7 +76,7 @@ export default function Skills() {
 
     return (
         <section
-            className={`py-12 px-4 md:px-10 transition-all duration-300 ${theme === "dark" ? "bg-black text-white" : "bg-white text-gray-900"
+            className={`py-4 px-4 md:px-10 transition-all duration-300 ${theme === "dark" ? "bg-black text-white" : "bg-white text-gray-900"
                 }`}
         >
             <h2 className="text-4xl font-bold text-center mb-10 tracking-wide">
