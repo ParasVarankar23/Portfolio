@@ -46,12 +46,42 @@ const Footer = () => {
           <h3 className="font-bold text-lg mb-4">Follow Me</h3>
           <div className="flex flex-wrap gap-4">
             {[
-              { Icon: FaLinkedin, color: "#0A66C2", label: "LinkedIn", href: "https://linkedin.com/in/parasvarankar" },
-              { Icon: FaInstagram, color: "#E4405F", label: "Instagram", href: "https://instagram.com/parasvarankar" },
-              { Icon: FaWhatsapp, color: "#25D366", label: "WhatsApp", href: "https://wa.me/919309940782" },
-              { Icon: FaGithub, color: theme === "dark" ? "#ededed" : "#171717", label: "GitHub", href: "https://github.com/parasvarankar" },
-              { Icon: FaYoutube, color: "#FF0000", label: "YouTube", href: "https://youtube.com/@parasvarankar" },
-              { Icon: FaTelegram, color: "#229ED9", label: "Telegram", href: "https://t.me/parasvarankar" },
+              {
+                Icon: FaLinkedin,
+                color: "#0A66C2",
+                label: "LinkedIn",
+                href: "https://linkedin.com/in/paras-varankar-8232872aa",
+              },
+              {
+                Icon: FaInstagram,
+                color: "#E4405F",
+                label: "Instagram",
+                href: "https://instagram.com/paras__2301",
+              },
+              {
+                Icon: FaWhatsapp,
+                color: "#25D366",
+                label: "WhatsApp",
+                href: "https://wa.me/919309940782",
+              },
+              {
+                Icon: FaGithub,
+                color: theme === "dark" ? "#ededed" : "#171717",
+                label: "GitHub",
+                href: "https://github.com/ParasVarankar23",
+              },
+              {
+                Icon: FaYoutube,
+                color: "#FF0000",
+                label: "YouTube",
+                href: "https://www.youtube.com/@ParasVarankar",
+              },
+              {
+                Icon: FaTelegram,
+                color: "#229ED9",
+                label: "Telegram",
+                href: "https://t.me/+xdk3gDWa6_YwMzI1",
+              },
             ].map(({ Icon, label, href, color }) => (
               <a
                 key={label}
@@ -70,9 +100,7 @@ const Footer = () => {
         {/* Newsletter */}
         <div>
           <h3 className="font-bold text-lg mb-4">Stay Updated</h3>
-          <p className="mb-3">
-            Subscribe to my newsletter for updates.
-          </p>
+          <p className="mb-3">Subscribe to my newsletter for updates.</p>
           <form className="flex flex-col gap-3">
             <input
               type="email"

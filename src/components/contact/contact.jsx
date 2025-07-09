@@ -1,5 +1,12 @@
 "use client";
-import { FaGithub, FaInstagram, FaLinkedin, FaTelegram, FaWhatsapp, FaYoutube } from "react-icons/fa";
+import {
+    FaGithub,
+    FaInstagram,
+    FaLinkedin,
+    FaTelegram,
+    FaWhatsapp,
+    FaYoutube,
+} from "react-icons/fa";
 
 export default function Contact() {
     return (
@@ -11,12 +18,41 @@ export default function Contact() {
             {/* Social Icons */}
             <div className="flex flex-wrap justify-center gap-6 mb-10">
                 {[
-                    { icon: <FaLinkedin size={40} color="#0A66C2" />, label: "LinkedIn", href: "https://linkedin.com/in/parasvarankar", color: "#0A66C2" },
-                    { icon: <FaInstagram size={40} color="#E4405F" />, label: "Instagram", href: "https://instagram.com/parasvarankar", color: "#E4405F" },
-                    { icon: <FaWhatsapp size={40} color="#25D366" />, label: "WhatsApp", href: "https://wa.me/919309940782", color: "#25D366" },
-                    { icon: <FaGithub size={40} className="dark:text-white" />, label: "GitHub", href: "https://github.com/parasvarankar" },
-                    { icon: <FaYoutube size={40} color="#FF0000" />, label: "YouTube", href: "https://youtube.com/@parasvarankar", color: "#FF0000" },
-                    { icon: <FaTelegram size={40} color="#229ED9" />, label: "Telegram", href: "https://t.me/parasvarankar", color: "#229ED9" },
+                    {
+                        icon: <FaLinkedin size={40} color="#0A66C2" />,
+                        label: "LinkedIn",
+                        href: "https://linkedin.com/in/paras-varankar-8232872aa",
+                        color: "#0A66C2",
+                    },
+                    {
+                        icon: <FaInstagram size={40} color="#E4405F" />,
+                        label: "Instagram",
+                        href: "https://instagram.com/paras__2301",
+                        color: "#E4405F",
+                    },
+                    {
+                        icon: <FaWhatsapp size={40} color="#25D366" />,
+                        label: "WhatsApp",
+                        href: "https://wa.me/919309940782",
+                        color: "#25D366",
+                    },
+                    {
+                        icon: <FaGithub size={40} className="dark:text-white" />,
+                        label: "GitHub",
+                        href: "https://github.com/ParasVarankar23",
+                    },
+                    {
+                        icon: <FaYoutube size={40} color="#FF0000" />,
+                        label: "YouTube",
+                        href: "https://www.youtube.com/@ParasVarankar",
+                        color: "#FF0000",
+                    },
+                    {
+                        icon: <FaTelegram size={40} color="#229ED9" />,
+                        label: "Telegram",
+                        href: "https://t.me/https://t.me/+xdk3gDWa6_YwMzI1",
+                        color: "#229ED9",
+                    },
                 ].map((item, idx) => (
                     <a
                         key={idx}
@@ -28,7 +64,10 @@ export default function Contact() {
                         <div className="transition-transform duration-300 transform group-hover:scale-110">
                             {item.icon}
                         </div>
-                        <span className="mt-1 text-sm font-medium" style={{ color: item.color || "var(--foreground)" }}>
+                        <span
+                            className="mt-1 text-sm font-medium text-center"
+                            style={{ color: item.color || "var(--foreground)" }}
+                        >
                             {item.label}
                         </span>
                     </a>
@@ -49,7 +88,10 @@ export default function Contact() {
                 }}
             >
                 <div>
-                    <label className="block mb-1 font-medium" style={{ color: "var(--foreground)" }}>
+                    <label
+                        className="block mb-1 font-medium"
+                        style={{ color: "var(--foreground)" }}
+                    >
                         Full Name
                     </label>
                     <input
@@ -64,7 +106,10 @@ export default function Contact() {
                     />
                 </div>
                 <div>
-                    <label className="block mb-1 font-medium" style={{ color: "var(--foreground)" }}>
+                    <label
+                        className="block mb-1 font-medium"
+                        style={{ color: "var(--foreground)" }}
+                    >
                         Email Address
                     </label>
                     <input
@@ -79,7 +124,10 @@ export default function Contact() {
                     />
                 </div>
                 <div>
-                    <label className="block mb-1 font-medium" style={{ color: "var(--foreground)" }}>
+                    <label
+                        className="block mb-1 font-medium"
+                        style={{ color: "var(--foreground)" }}
+                    >
                         Message
                     </label>
                     <textarea
@@ -96,9 +144,9 @@ export default function Contact() {
                 <button
                     type="submit"
                     className="w-full font-semibold py-3 rounded-lg mt-2 
-                    bg-white text-black hover:bg-gray-200 
-                    dark:bg-black dark:text-white dark:hover:bg-gray-800
-                    transition-colors duration-200 border border-black dark:border-white"
+          bg-white text-black hover:bg-gray-200 
+          dark:bg-black dark:text-white dark:hover:bg-gray-800
+          transition-colors duration-200 border border-black dark:border-white"
                 >
                     Send Message
                 </button>
