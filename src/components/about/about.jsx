@@ -6,7 +6,6 @@ export default function About() {
     const { theme } = useContext(ThemeContext);
 
     return (
-        <div className="py-1">
             <div
                 className={`max-w-6xl mx-auto px-8 py-12 rounded-xl shadow-lg transition-all duration-300 ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-900"
                     }`}
@@ -52,6 +51,5 @@ export default function About() {
                     </div>
                 </div>
             </div>
-        </div>
     );
 }

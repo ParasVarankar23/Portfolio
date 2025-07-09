@@ -10,7 +10,7 @@ export default function Profile() {
         <section
             className={`min-h-screen px-6 py-12 flex flex-col justify-center items-center transition-all duration-300 ${theme === "dark"
                     ? "bg-black text-white"
-                    : "bg-gray-100 text-gray-900"
+                    : "bg-white text-gray-900"
                 }`}
         >
             {/* Intro Section */}

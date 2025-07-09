@@ -19,20 +19,17 @@ const Footer = () => {
 
   return (
     <footer
-      className={`footer ${theme}`}
+      className={`transition-all duration-300 text-sm ${theme}`}
       style={{
         background: "var(--background)",
         color: "var(--foreground)",
         borderTop: "1px solid #ccc",
-        marginTop: "2rem",
-        padding: 0,
-        transition: "background 0.3s, color 0.3s",
       }}
     >
-      <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Quick Links */}
         <div>
-          <h3 className="font-bold text-xl mb-3">Quick Links</h3>
+          <h3 className="font-bold text-lg mb-4">Quick Links</h3>
           <ul className="space-y-2">
             <li><Link href="/">Home</Link></li>
             <li><Link href="/about">About</Link></li>
@@ -46,122 +43,77 @@ const Footer = () => {
 
         {/* Follow Me */}
         <div>
-          <h3 className="font-bold text-xl mb-3">Follow Me</h3>
-          <div className="grid grid-cols-3 gap-4 text-center">
-            <a
-              href="https://linkedin.com/in/parasvarankar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform"
-            >
-              <FaLinkedin size={28} className="mx-auto" color="#0A66C2" />
-              <p className="text-sm mt-1">LinkedIn</p>
-            </a>
-            <a
-              href="https://instagram.com/parasvarankar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform"
-            >
-              <FaInstagram size={28} className="mx-auto" color="#E4405F" />
-              <p className="text-sm mt-1">Instagram</p>
-            </a>
-            <a
-              href="https://wa.me/919309940782"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform"
-            >
-              <FaWhatsapp size={28} className="mx-auto" color="#25D366" />
-              <p className="text-sm mt-1">WhatsApp</p>
-            </a>
-            <a
-              href="https://github.com/parasvarankar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform"
-            >
-              <FaGithub
-                size={28}
-                className="mx-auto"
-                color={theme === "dark" ? "#ededed" : "#171717"}
-              />
-              <p className="text-sm mt-1">GitHub</p>
-            </a>
-            <a
-              href="https://youtube.com/@parasvarankar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform"
-            >
-              <FaYoutube size={28} className="mx-auto" color="#FF0000" />
-              <p className="text-sm mt-1">YouTube</p>
-            </a>
-            <a
-              href="https://t.me/parasvarankar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:scale-110 transition-transform"
-            >
-              <FaTelegram size={28} className="mx-auto" color="#229ED9" />
-              <p className="text-sm mt-1">Telegram</p>
-            </a>
+          <h3 className="font-bold text-lg mb-4">Follow Me</h3>
+          <div className="flex flex-wrap gap-4">
+            {[
+              { Icon: FaLinkedin, color: "#0A66C2", label: "LinkedIn", href: "https://linkedin.com/in/parasvarankar" },
+              { Icon: FaInstagram, color: "#E4405F", label: "Instagram", href: "https://instagram.com/parasvarankar" },
+              { Icon: FaWhatsapp, color: "#25D366", label: "WhatsApp", href: "https://wa.me/919309940782" },
+              { Icon: FaGithub, color: theme === "dark" ? "#ededed" : "#171717", label: "GitHub", href: "https://github.com/parasvarankar" },
+              { Icon: FaYoutube, color: "#FF0000", label: "YouTube", href: "https://youtube.com/@parasvarankar" },
+              { Icon: FaTelegram, color: "#229ED9", label: "Telegram", href: "https://t.me/parasvarankar" },
+            ].map(({ Icon, label, href, color }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center hover:scale-105 transition-transform w-20"
+              >
+                <Icon size={26} color={color} />
+                <p className="mt-1">{label}</p>
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* Stay Updated */}
+        {/* Newsletter */}
         <div>
-          <h3 className="font-bold text-xl mb-3">Stay Updated</h3>
+          <h3 className="font-bold text-lg mb-4">Stay Updated</h3>
           <p className="mb-3">
-            Sign up for my newsletter to get the latest updates directly in your
-            inbox.
+            Subscribe to my newsletter for updates.
           </p>
           <form className="flex flex-col gap-3">
             <input
               type="email"
               placeholder="Enter your email"
-              className="rounded px-3 py-2 border border-gray-300 
-                         focus:outline-none focus:ring-2 focus:ring-black 
-                         dark:focus:ring-white bg-[var(--background)] text-[var(--foreground)]"
-              style={{ transition: "background 0.3s, color 0.3s" }}
+              className="w-full rounded px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white bg-[var(--background)] text-[var(--foreground)]"
             />
             <button
               type="submit"
-              className="w-full font-semibold py-3 rounded-lg mt-2 
-                         bg-white text-black hover:bg-gray-200 
-                         dark:bg-black dark:text-white dark:hover:bg-gray-800 
-                         border border-black dark:border-white 
-                         transition-colors duration-200"
+              className="py-2 px-4 rounded font-semibold bg-white text-black hover:bg-gray-200 dark:bg-black dark:text-white dark:hover:bg-gray-800 border border-black dark:border-white transition"
             >
               Subscribe
             </button>
           </form>
         </div>
 
-        {/* Contact */}
+        {/* Contact Info */}
         <div>
-          <h3 className="font-bold text-xl mb-3">Contact</h3>
-          <p className="mb-3">
-            Feel free to reach out to me for any collaborations or queries.
+          <h3 className="font-bold text-lg mb-4">Contact</h3>
+          <p className="mb-4">
+            Reach out for collaborations, queries or coffee ☕
           </p>
-          <div className="flex items-center gap-2 mb-2">
-            <FaEnvelope />
-            <span>parasvarankar235@gmail.com</span>
-          </div>
-          <div className="flex items-center gap-2 mb-2">
-            <FaPhoneAlt />
-            <span>+91 93099 40782</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <FaMapMarkerAlt />
-            <span>Navi Mumbai, Panvel, India</span>
+          <div className="space-y-3 text-sm">
+            <div className="flex items-center gap-2">
+              <FaEnvelope className="text-lg" />
+              <span>parasvarankar235@gmail.com</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaPhoneAlt className="text-lg" />
+              <span>+91 93099 40782</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaMapMarkerAlt className="text-lg" />
+              <span>Navi Mumbai, Panvel, India</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <hr className="border-t border-gray-300 mx-4" />
+      <hr className="border-gray-300" />
 
-      <div className="text-center py-4 text-sm">
+      <div className="text-center py-4 text-xs tracking-wide">
         © {new Date().getFullYear()} <b>Paras Varankar</b>. All rights reserved.
       </div>
     </footer>

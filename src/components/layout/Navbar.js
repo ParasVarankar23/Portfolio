@@ -1,54 +1,71 @@
 "use client";
+import { useContext, useEffect, useRef, useState } from "react";
+import { ThemeContext } from "@/context/ThemeContext";
 import { LanguageContext } from "@/context/LanguageContext";
 import { LANGUAGES } from "@/context/languages";
-import { ThemeContext } from "@/context/ThemeContext";
 import Link from "next/link";
-import { useContext, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
+import { IoMenu } from "react-icons/io5";
 
 export default function Navbar() {
     const { theme, toggleTheme } = useContext(ThemeContext);
     const { language, changeLanguage } = useContext(LanguageContext);
     const [showLang, setShowLang] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const langRef = useRef(null);
+
+    // Close language dropdown on outside click
+    useEffect(() => {
+        const handler = (e) => {
+            if (langRef.current && !langRef.current.contains(e.target)) {
+                setShowLang(false);
+            }
+        };
+        document.addEventListener("mousedown", handler);
+        return () => document.removeEventListener("mousedown", handler);
+    }, []);
+
+    const links = [
+        { name: "Home", href: "/" },
+        { name: "About", href: "/about" },
+        { name: "Contact", href: "/contact" },
+        { name: "Education", href: "/education" },
+        { name: "Project", href: "/project" },
+        { name: "Skills", href: "/skills" },
+        { name: "Experience", href: "/experience" },
+    ];
 
     return (
         <nav
-            className={`navbar ${theme}`}
-            style={{
-                padding: "1rem 1.5rem",
-                borderBottom: "1px solid #ccc",
-                background: "var(--background)",
-                color: "var(--foreground)",
-            }}
+            className={`sticky top-0 z-50 border-b transition-all duration-300 ${theme === "dark" ? "bg-black text-white" : "bg-white text-black"
+                }`}
         >
-            <div className="max-w-7xl mx-auto flex justify-between items-center">
-                <div className="text-xl font-bold">My Portfolio</div>
+            <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+                {/* Logo */}
+                <div className="text-xl font-bold tracking-wide">My Portfolio</div>
 
-                {/* Desktop Menu */}
-                <ul className="hidden md:flex gap-6 items-center font-medium text-base">
-                    <li><Link href="/">Home</Link></li>
-                    <li><Link href="/about">About</Link></li>
-                    <li><Link href="/contact">Contact</Link></li>
-                    <li><Link href="/education">Education</Link></li>
-                    <li><Link href="/project">Project</Link></li>
-                    <li><Link href="/skills">Skills</Link></li>
-                    <li><Link href="/experience">Experience</Link></li>
+                {/* Desktop Links */}
+                <ul className="hidden md:flex gap-6 items-center text-base font-medium">
+                    {links.map((link) => (
+                        <li key={link.name}>
+                            <Link href={link.href}>{link.name}</Link>
+                        </li>
+                    ))}
                 </ul>
 
                 {/* Right Controls */}
-                <div className="flex items-center gap-3">
-                    {/* Language Button */}
-                    <div className="relative">
+                <div className="flex items-center gap-4">
+                    {/* Language */}
+                    <div className="relative" ref={langRef}>
                         <button
-                            onClick={() => setShowLang((prev) => !prev)}
+                            onClick={() => setShowLang(!showLang)}
                             className="text-xl px-2"
-                            title="Change Language"
+                            title="Language"
                         >
                             🌐
                         </button>
                         {showLang && (
-                            <ul className="absolute right-0 mt-2 w-32 bg-[var(--background)] border rounded-lg shadow-md text-sm z-10">
+                            <ul className="absolute right-0 mt-2 w-32 bg-[var(--background)] border rounded-lg shadow-md text-sm z-50">
                                 {LANGUAGES.map((lang) => (
                                     <li key={lang.code}>
                                         <button
@@ -56,10 +73,10 @@ export default function Navbar() {
                                                 changeLanguage(lang.code);
                                                 setShowLang(false);
                                             }}
-                                            className={`w-full text-left px-3 py-2 ${language === lang.code
-                                                ? "bg-[var(--foreground)] text-[var(--background)]"
-                                                : ""
-                                                } hover:bg-gray-200 dark:hover:bg-gray-700 rounded`}
+                                            className={`w-full text-left px-4 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 ${language === lang.code
+                                                    ? "bg-[var(--foreground)] text-[var(--background)]"
+                                                    : ""
+                                                }`}
                                         >
                                             {lang.label}
                                         </button>
@@ -69,35 +86,36 @@ export default function Navbar() {
                         )}
                     </div>
 
-                    {/* Theme Toggle */}
+                    {/* Theme toggle */}
                     <button
                         onClick={toggleTheme}
-                        className="text-xl px-3 py-1 rounded-md"
-                        title="Toggle theme"
+                        className="text-xl px-2 py-1 rounded"
+                        title="Toggle Theme"
                     >
                         {theme === "dark" ? <FaMoon /> : <FaSun />}
                     </button>
 
-                    {/* Mobile Menu Button */}
+                    {/* Hamburger Menu */}
                     <button
+                        className="md:hidden text-2xl p-1 border rounded"
                         onClick={() => setMenuOpen(!menuOpen)}
-                        className="md:hidden text-2xl px-2"
+                        aria-label="Toggle Menu"
                     >
-                        ☰
+                        <IoMenu />
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu Items */}
+            {/* Mobile Menu */}
             {menuOpen && (
-                <ul className="md:hidden mt-4 flex flex-col gap-3 px-4 text-base font-medium">
-                    <li><Link href="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-                    <li><Link href="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
-                    <li><Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
-                    <li><Link href="/education" onClick={() => setMenuOpen(false)}>Education</Link></li>
-                    <li><Link href="/project" onClick={() => setMenuOpen(false)}>Project</Link></li>
-                    <li><Link href="/skills" onClick={() => setMenuOpen(false)}>Skills</Link></li>
-                    <li><Link href="/experience" onClick={() => setMenuOpen(false)}>Experience</Link></li>
+                <ul className="md:hidden px-6 pb-4 flex flex-col gap-3 font-medium animate-fade-in">
+                    {links.map((link) => (
+                        <li key={link.name}>
+                            <Link href={link.href} onClick={() => setMenuOpen(false)}>
+                                {link.name}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             )}
         </nav>
