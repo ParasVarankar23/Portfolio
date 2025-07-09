@@ -32,7 +32,7 @@ export default function Contact() {
                         size={40}
                         className="group-hover:scale-110 transition-transform dark:text-white"
                     />
-                    <span className="mt-1 text-base  dark:text-white">GitHub</span>
+                    <span className="mt-1 text-base dark:text-white">GitHub</span>
                 </a>
 
                 <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
@@ -94,11 +94,14 @@ export default function Contact() {
                 </div>
                 <button
                     type="submit"
-                    className="w-full bg-black text-white font-semibold py-3 rounded-lg mt-2 hover:bg-black/80 transition-colors duration-200 dark:bg-white dark:text-black dark:hover:bg-white/80 dark:hover:text-black"
-                    style={{ backgroundColor: 'white', color: 'black' }}
+                    className="w-full font-semibold py-3 rounded-lg mt-2 
+             bg-white text-black hover:bg-gray-200 
+             dark:bg-black dark:text-white dark:hover:bg-gray-800
+             transition-colors duration-200 border border-black dark:border-white"
                 >
                     Send Message
                 </button>
+
             </form>
         </div>
     );

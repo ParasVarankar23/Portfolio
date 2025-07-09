@@ -1,21 +1,68 @@
+"use client";
+import { useContext } from "react";
+import { ThemeContext } from "@/context/ThemeContext";
+
 export default function About() {
+    const { theme } = useContext(ThemeContext);
+
     return (
-        <div style={{ maxWidth: '48rem', margin: '0 auto', fontSize: '1.125rem', lineHeight: '1.75', padding: '1rem', color: 'var(--foreground)', background: 'var(--background)', borderRadius: '0.5rem', transition: 'background 0.3s, color 0.3s' }}>
-            <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>About Me</h2>
-            <p style={{ marginBottom: '1rem' }}>
-                Hello! I'm <b>Paras Pramod Varankar</b>, a passionate and detail-oriented Web Developer with a strong foundation in full-stack development. I specialize in the <b>MERN stack</b> (MongoDB, Express.js, React.js, Node.js) and have gained hands-on experience through various internships and freelance projects.
+        <div
+            className={`max-w-3xl mx-auto px-6 py-10 rounded-lg shadow-md transition-all duration-300 ${theme === "dark"
+                    ? "bg-gray-900 text-white"
+                    : "bg-white text-gray-900"
+                }`}
+        >
+            <h2 className="text-4xl font-bold mb-6 border-b border-gray-400 pb-2">
+                About Me
+            </h2>
+
+            <p className="mb-5 text-lg leading-relaxed">
+                Hello! I'm{" "}
+                <span className="font-semibold text-cyan-500 dark:text-cyan-400">
+                    Paras Pramod Varankar
+                </span>
+                , a passionate and detail-oriented Web Developer with a strong
+                foundation in full-stack development. I specialize in the{" "}
+                <b className="text-green-600 dark:text-green-400">MERN stack</b> and
+                have gained hands-on experience through internships and freelance work.
             </p>
-            <p style={{ marginBottom: '1rem' }}>
-                Over the last year, I’ve had the privilege of working on real-world applications during internships at organizations like Nexcore Alliance, Internselite, IBM, Quantum, and more. These experiences helped me grow technically and professionally — from crafting responsive frontends with React and Tailwind CSS, to building dynamic backend systems using Node.js and integrating tools like MongoDB, MySQL, and PostgreSQL.
+
+            <p className="mb-5 text-lg leading-relaxed">
+                I’ve contributed to real-world applications during internships at{" "}
+                <b>Nexcore Alliance</b>, <b>Internselite</b>, <b>IBM</b>, and{" "}
+                <b>Quantum</b>. These roles refined my ability to build responsive
+                frontends using{" "}
+                <span className="text-blue-500 dark:text-blue-300">
+                    React & Tailwind CSS
+                </span>{" "}
+                and robust backend systems with{" "}
+                <span className="text-yellow-500 dark:text-yellow-400">Node.js</span>,
+                while integrating databases like MongoDB, MySQL, and PostgreSQL.
             </p>
-            <p style={{ marginBottom: '1rem' }}>
-                I’ve worked remotely and on-site, across diverse domains such as Artificial Intelligence, Cybersecurity, Computer Graphics, and Data Science. Some of my proudest projects include a Hospital Management System, a Student Result Management System, and the Siddhi Resort Website.
+
+            <p className="mb-5 text-lg leading-relaxed">
+                I've tackled projects in domains like{" "}
+                <b className="text-purple-500 dark:text-purple-400">
+                    AI, Cybersecurity, Data Science
+                </b>{" "}
+                and more. Some major accomplishments include building a{" "}
+                <b>Hospital Management System</b>, a{" "}
+                <b>Student Result Management System</b>, and a{" "}
+                <b>Siddhi Resort Booking Website</b>.
             </p>
-            <p style={{ marginBottom: '1rem' }}>
-                I’m currently pursuing my B.Sc. in Information Technology at Pillai College, Panvel, and continue to stay curious, adaptive, and eager to learn emerging technologies.
+
+            <p className="mb-5 text-lg leading-relaxed">
+                I’m currently pursuing my{" "}
+                <b className="text-orange-500 dark:text-orange-400">
+                    B.Sc. in Information Technology
+                </b>{" "}
+                at Pillai College, Panvel. I believe in being a lifelong learner and
+                constantly evolving with the tech ecosystem.
             </p>
-            <p>
-                Whether it's designing a sleek user interface, optimizing for SEO, or developing scalable APIs — I enjoy every step of creating meaningful and user-friendly web solutions.
+
+            <p className="text-lg leading-relaxed">
+                From designing sleek UIs to optimizing performance and security, I’m
+                driven by a desire to craft meaningful and impactful digital experiences.
             </p>
         </div>
     );
